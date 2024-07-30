@@ -1,0 +1,229 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-gov.min.css");
+
+body {
+    margin: 0;
+    font-family: "Pretendard GOV Variable", "Pretendard GOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    background-color: #003458;
+}
+
+button {
+    font-family: "Pretendard GOV Variable", "Pretendard GOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+.container {
+    position: relative;
+    width: 320px;
+    height: 640px;
+    margin-left: calc((100% - 320px) / 2);
+    margin-right: calc((100% - 320px) / 2);
+    background-color: #003458;
+    color: white;
+}
+
+.header {
+    position: relative;
+    width: 320px;
+    height: 180px;
+}
+
+.header .logo {
+    position: relative;
+    width: 320px;
+}
+
+.header .logo img {
+    position: relative;
+    width: 120px;
+    margin: 30px 0px 50px 10px;
+}
+
+.header .bar {
+    position: absolute;
+    top: 36px;
+    left: 150px;
+    width: 160px;
+    height: 10px;
+    background: white;
+    border-radius: 20px;
+    opacity: 0.5
+}
+
+.header .bar-progress {
+    position: absolute;
+    top: 36px;
+    left: 150px;
+    width: 10px;
+    height: 10px;
+    background: #ffe785; /*#FDBF01;*/
+    border-radius: 20px;
+    transition: 0.3s ease-in-out;
+}
+
+.header .title {
+    position: relative;
+    width: 320px;
+}
+
+.header .title img {
+    position: absolute;
+    width: 80px;
+    top: -18px;
+    left: 33px;
+    z-index: 1;
+}
+
+.header .title p {
+    position: relative;
+    width: 300px;
+    left: 20px;
+    margin: 0px;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 600;
+    text-shadow: 3px 3px 3px rgba(0,0,0,0.25);
+    z-index: 2;
+}
+
+.loading {
+    position: absolute;
+    top: 250px;
+    width: 20px;
+    height: 20px;
+    background: #ffffff;
+    border-radius: 50px;
+}
+
+@keyframes loadingChange1 {
+    from {opacity: 0;}
+    to {opacity: 0.2;}
+}
+
+.loading-1 {
+    left: 90px;
+    opacity: 0.2;
+    animation-name: loadingChange1;
+    animation-duration: 0.3s;
+    animation-delay: 0.2s;
+}
+
+@keyframes loadingChange2 {
+    from {opacity: 0;}
+    to {opacity: 0.4;}
+}
+
+.loading-2 {
+    left: 150px;
+    opacity: 0.4;
+    animation-name: loadingChange2;
+    animation-duration: 0.3s;
+    animation-delay: 0.5s;
+}
+
+@keyframes loadingChange3 {
+    from {opacity: 0;}
+    to {opacity: 0.6;}
+}
+
+.loading-3 {
+    left: 210px;
+    opacity: 0.6;
+    animation-name: loadingChange3;
+    animation-duration: 0.3s;
+    animation-delay: 0.8s;
+}
+
+.loading-4 {
+    position: absolute;
+    top: 300px;
+    width: 320px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+.question {
+    position: relative;
+    width: 320px;
+    height: 100px;
+}
+
+.question p {
+    position: relative;
+    margin: 0px;
+    padding-top: 10px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 32px;
+}
+
+.answers {
+    position: relative;
+    width: 320px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.answer {
+    padding: 15px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 20px;
+    background-color: #ffffff;
+    color: #003458;
+    opacity: 1;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 7px 7px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+}
+
+/*
+.answer:hover {
+    background-color: #ffe785;
+    font-weight: 600;
+}
+*/
+
+.result {
+    padding: 15px;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 400;
+    background-color: #ffffff;
+    color: #003458;
+    opacity: 1;
+    border: none;
+    box-shadow: 0 7px 7px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+}
+
+.footer {
+    position: relative;
+    width: 320px;
+}
+
+.footer img {
+    position: relative;
+    left: calc((320px - 283.41px) / 2);
+    height: 200px;
+}
+
+.footer .register-1 {
+    display: block;
+    position: absolute;
+    width: 98px;
+    height: 30px;
+    top: 127px;
+    left: 58px;
+}
+
+.footer .register-2 {
+    display: block;
+    position: absolute;
+    width: 98px;
+    height: 30px;
+    top: 127px;
+    left: 162px;
+}

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-gov.min.css" />
+    <title>차세대 MBTI</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="./logo.png"></img>
+            </div>
+            <div class="bar"></div>
+            <div class="bar-progress"></div>
+            <div class="title">
+                <img src="./back.png"></img>
+                <p>차BTI 테스트</p>
+            </div>
+        </div>
+        <div class="loading-all" style="display: none;">
+            <div class="loading loading-1"></div>
+            <div class="loading loading-2"></div>
+            <div class="loading loading-3"></div>
+            <div class="loading-4">LOADING...</div>
+        </div>
+        <div class="question">
+            <p>Q. 두근두근 차세대에서의 HR 교육!<br />내가 더 기대하는 세션은?</p>
+        </div>
+        <div class="answers">
+            <button class="answer answer-1">채용, 성과관리, 조직문화 등의 HRM 세션</button>
+            <button class="answer answer-2">교수설계, 교육평가 등의 HRD 세션</button>
+            <button class="result" style="display: none;"></button>
+        </div>
+        <div class="footer">
+            <img src="./register.png"></img>
+            <a class="register-1" href="https://blog.naver.com/next_hr_academy"></a>
+            <a class="register-2" href="https://blog.naver.com/next_hr_academy"></a>
+        </div>
+    </div>
+</body>
+<script>
+    const changeZoom = () => {
+        document.body.style.zoom = `${window.innerHeight / 640 * 100}%`;
+    }
+    changeZoom();
+    window.addEventListener('resize', changeZoom);
+
+    let currentQuestion = 0;
+
+    const questionList = ["Q. 두근두근 차세대에서의 HR 교육!<br />내가 더 기대하는 세션은?",
+                    "Q. 많은 HRer들을 만날 수 있다니!<br />내가 더 관심있는 네트워킹은?",
+                    "Q. 프로젝트에 열심히 참여해서<br />내가 얻고 싶은 것은?",
+                    "Q. 차세대... 이런 점이 <br />가장 매력적인 것 같은데?",
+                    "Q. 내가 36기 차둥이가 된다면,<br />이것만큼은 자신 있다!"];
+    const answer1List = ["채용, 성과관리, 조직문화 등의 HRM 세션",
+                   "현업의 이야기를 들을 수 있는 OB네트워킹",
+                   "문제점을 논리적으로 도출하는 통찰력",
+                   "HR에 진심인 사람들이 모인 단체",
+                   "누구보다 성실하게 활동에 임할 수 있다!"]
+    const answer2List = ["교수설계, 교육평가 등의 HRD 세션",
+                   "차둥이들과 더 친해질 수 있는 YB네트워킹",
+                   "팀원들과 함께 솔루션을 고민해보는 경험",
+                   "운영진까지 이어지는 체계적인 커리큘럼",
+                   "사람들과 함께 시너지를 만들어낼 수 있다!"]
+    const resultList = ["💙 맡은 일은 누구보다 성실하게 수행하려고 해요.<br />💙 내가 속한 조직에 강한 애정을 가지고 있어요.<br />💙 어떤 활동이든 적극적으로 참여할 의지가 있어요.<br /><span style='padding-top: 15px; font-size: 14px; font-weight: 600; line-height: 22px;'>📢 36기 인재상에 부합하는 당신,<br />차세대 HR 아카데미와 함께 해보는 건 어떠신가요?</span>",
+                   "💙 HR에 관심이 많아서 배우고 싶은 게 많아요.<br />💙 새로운 지식과 인사이트를 알아가는 건 흥미로워요.<br />💙 누구보다 열정적인 자세로 배움에 임할 수 있어요.<br /><span style='padding-top: 15px; font-size: 14px; font-weight: 600; line-height: 22px;'>📢 36기 인재상에 부합하는 당신,<br />차세대 HR 아카데미와 함께 해보는 건 어떠신가요?</span>",
+                   "💙 사람들과 소통하고 협동하는 일을 좋아해요.<br />💙 함께 최선의 결과를 만들기 위해 언제나 노력해요.<br />💙 다른 사람의 의견에 언제나 귀 기울이는 편이에요.<br /><span style='padding-top: 15px; font-size: 14px; font-weight: 600; line-height: 22px;'>📢 36기 인재상에 부합하는 당신,<br />차세대 HR 아카데미와 함께 해보는 건 어떠신가요?</span>"]
+
+    let MY_TYPE = 0;
+    let temp_TYPE = 0;
+
+    const TYPE_IMMERSION = 0;
+    const TYPE_GROWTH = 1;
+    const TYPE_COOPERATION = 2;
+    const typeList = ["몰입", "성장", "협업"];
+    const iconList = ["🔥", "🎁", "🙌"]
+    const result_type = [];
+
+    const addResult = (question, answer) => {
+        if (question == 1 && answer == 1) temp_TYPE = TYPE_GROWTH;
+        if (question == 1 && answer == 2) temp_TYPE = TYPE_COOPERATION;
+        if (question == 2 && answer == 1) result_type.push(TYPE_GROWTH);
+        if (question == 2 && answer == 2) result_type.push(TYPE_COOPERATION);
+        if (question == 3 && answer == 1) result_type.push(TYPE_IMMERSION);
+        if (question == 3 && answer == 2) result_type.push(TYPE_GROWTH);
+        if (question == 4 && answer == 1) result_type.push(TYPE_IMMERSION);
+        if (question == 4 && answer == 2) result_type.push(TYPE_COOPERATION);
+    }
+
+    const findType = () => {
+        const immersion = result_type.filter((t) => t == TYPE_IMMERSION).length;
+        const growth = result_type.filter((t) => t == TYPE_GROWTH).length;
+        const cooperation = result_type.filter((t) => t == TYPE_COOPERATION).length;
+        if (immersion > growth && immersion > cooperation) MY_TYPE = TYPE_IMMERSION;
+        if (growth > immersion && growth > cooperation) MY_TYPE = TYPE_GROWTH;
+        if (cooperation > immersion && cooperation > growth) MY_TYPE = TYPE_COOPERATION;
+        if (growth == immersion) MY_TYPE = temp_TYPE;
+    }
+
+    const changePage = async (e) => {
+        addResult(currentQuestion, e.target.classList[1].split("-")[1]);
+
+        e.target.style.backgroundColor = "#ffe785";
+        e.target.style.fontWeight = "600";
+
+        setTimeout(function() {
+            e.target.style.backgroundColor = "#ffffff";
+            e.target.style.fontWeight = "500";
+            currentQuestion++;
+            document.querySelector('.bar-progress').style.width = `${10 + 30 * currentQuestion}px`;
+            if (currentQuestion == 5) {
+                findType();
+                setStat();
+                document.querySelector('.question p').style.display = 'none';
+                document.querySelector('.answer-1').style.display = 'none';
+                document.querySelector('.answer-2').style.display = 'none';
+                document.querySelector('.loading-all').style.display = 'block';
+
+                setTimeout(function() {
+                    document.querySelector('.loading-all').style.display = 'none';
+                    document.querySelector('.question p').style.display = 'block';
+                    document.querySelector('.question p').innerHTML = `당신은 <span style="font-weight: 600; color: #ffe785;">${typeList[MY_TYPE]}</span>형 차둥이입니다.<br /><span style="font-size: 35px; line-height: 50px;">${iconList[MY_TYPE]}</span>`;
+                    document.querySelector('.result').style.display = 'block';
+                    document.querySelector('.result').innerHTML = resultList[MY_TYPE];
+                }, 1200);
+
+            } else {
+                document.querySelector('.question p').innerHTML = questionList[currentQuestion];
+                document.querySelector('.answer-1').innerHTML = answer1List[currentQuestion];
+                document.querySelector('.answer-2').innerHTML = answer2List[currentQuestion];
+            }
+        }, 100);
+    };
+
+    document.querySelectorAll('.answer').forEach((button) => {
+        button.addEventListener('click', changePage);
+    });
+</script>
+</html>
