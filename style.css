@@ -23,7 +23,7 @@ button {
 .header {
     position: relative;
     width: 320px;
-    height: 180px;
+    height: 80px;
 }
 
 .header .logo {
@@ -34,7 +34,7 @@ button {
 .header .logo img {
     position: relative;
     width: 120px;
-    margin: 30px 0px 50px 10px;
+    margin: 30px 0px 0px 10px;
 }
 
 .header .bar {
@@ -59,29 +59,68 @@ button {
     transition: 0.3s ease-in-out;
 }
 
-.header .title {
+.page {
+    position: relative;
+    width: 320px;
+    height: 350px;
+}
+
+.first-page .title {
     position: relative;
     width: 320px;
 }
 
-.header .title img {
+.first-page .title img {
     position: absolute;
     width: 80px;
-    top: -18px;
-    left: 33px;
+    top: 20px;
+    left: 10px;
     z-index: 1;
 }
 
-.header .title p {
+.first-page .title p {
     position: relative;
     width: 300px;
     left: 20px;
+    top: 38px;
     margin: 0px;
     text-align: center;
     font-size: 35px;
     font-weight: 600;
     text-shadow: 3px 3px 3px rgba(0,0,0,0.25);
     z-index: 2;
+}
+
+.first-page .description {
+    position: relative;
+    width: 320px;
+    height: 100px;
+}
+
+.first-page .description p {
+    position: relative;
+    margin: 0px;
+    padding-top: 80px;
+    text-align: center;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 32px;
+}
+
+.first-page .description .start {
+    width: 280px;
+    margin-top: 40px;
+    margin-left: 20px;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 2px;
+    background-color: #ffffff;
+    color: #003458;
+    opacity: 1;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 7px 7px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
 }
 
 .loading {
@@ -142,24 +181,25 @@ button {
     opacity: 0.8;
 }
 
-.question {
+.question-page .question {
     position: relative;
     width: 320px;
     height: 100px;
 }
 
-.question p {
+.question-page .question p {
     position: relative;
     margin: 0px;
-    padding-top: 10px;
+    padding-top: 30px;
     text-align: center;
     font-size: 22px;
     font-weight: 400;
     line-height: 32px;
 }
 
-.answers {
+.question-page .answers {
     position: relative;
+    margin-top: 30px;
     width: 320px;
     height: 150px;
     display: flex;
@@ -167,7 +207,7 @@ button {
     gap: 20px;
 }
 
-.answer {
+.question-page .answer {
     padding: 15px;
     font-size: 14px;
     font-weight: 500;
@@ -187,16 +227,31 @@ button {
 }
 */
 
-.result {
+.question-page .result {
     padding: 15px;
     font-size: 12px;
-    line-height: 20px;
+    line-height: 19px;
     font-weight: 400;
     background-color: #ffffff;
     color: #003458;
     opacity: 1;
     border: none;
     box-shadow: 0 7px 7px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+}
+
+.recommend-link {
+    background: #003458;
+    border-radius: 20px;
+    color: #ffe785;
+    font-weight: 450;
+    text-decoration: none;
+}
+
+.highlight {
+    padding-top: 15px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 22px;
 }
 
 .footer {
@@ -208,6 +263,7 @@ button {
     position: relative;
     left: calc((320px - 283.41px) / 2);
     height: 200px;
+    width: 284px;
 }
 
 .footer .register-1 {
@@ -216,7 +272,7 @@ button {
     width: 98px;
     height: 30px;
     top: 127px;
-    left: 58px;
+    left: 60px;
 }
 
 .footer .register-2 {
@@ -225,5 +281,107 @@ button {
     width: 98px;
     height: 30px;
     top: 127px;
-    left: 162px;
+    left: 164px;
+}
+
+.black-container {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 3;
+}
+
+.modal {
+    position: absolute;
+    left: calc((100% - 300px) / 2);
+    width: 300px;
+    height: 525px;
+    top: 80px;
+    background: #EAEAEA;
+    border-radius: 10px;
+    z-index: 4;
+}
+
+.modal-wrap {
+    margin-left: 25px;
+    margin-top: 25px;
+    width: 250px;
+    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.info {
+    width: 120px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    color: #003458;
+}
+
+.info img {
+    width: 120px;
+}
+
+.info p {
+    margin-top: 5px;
+}
+
+.name {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.modal-desc {
+    width: 300px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.sns {
+    width: 180px;
+    margin-left: 60px;
+}
+
+.close {    
+    position: relative;
+    left: 5px;
+    padding: 7px;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #ffffff;
+    color: #003458;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+}
+
+.sns-link {
+    display: block;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 454px;
+}
+
+.sns-1 {
+    left: 65px;
+}
+
+.sns-2 {
+    left: 109px;
+}
+
+.sns-3 {
+    left: 153px;
+}
+
+.sns-4 {
+    left: 196px;
 }
