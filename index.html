@@ -16,6 +16,7 @@
             </div>
             <div class="bar"></div>
             <div class="bar-progress"></div>
+            <img id="kakao-link-btn" src="./send.png"></img>
         </div>
         <div class="page first-page">
             <div class="title">
@@ -84,6 +85,7 @@
         </div>
     </div>
 </body>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script>
     const changeZoom = () => {
         document.body.style.zoom = `${window.innerHeight / 640 * 100}%`;
@@ -162,7 +164,7 @@
             e.target.style.backgroundColor = "#ffffff";
             e.target.style.fontWeight = "500";
             currentQuestion++;
-            document.querySelector('.bar-progress').style.width = `${10 + 30 * currentQuestion}px`;
+            document.querySelector('.bar-progress').style.width = `${10 + 24 * currentQuestion}px`;
             if (currentQuestion == 5) {
                 findType();
                 document.querySelector('.question p').style.display = 'none';
@@ -211,6 +213,15 @@
     });
     document.querySelector('.close').addEventListener('click', (e) => {
         document.querySelector('.black-container').style.display = 'none';
+    });
+    
+    Kakao.init('bf0f27bb133592d8ee9cbc2e482289f4');
+    document.querySelector('#kakao-link-btn').addEventListener('click', (e) => {
+        console.log(1);
+        e.preventDefault();
+        Kakao.Link.sendCustom({
+            templateId : 110637
+        });
     });
 </script>
 </html>
