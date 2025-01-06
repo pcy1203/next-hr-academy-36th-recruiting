@@ -1,3 +1,12 @@
+<a display="block" href="https://www.instagram.com/next_hr_academy/" target="_blank">
+  <img src="https://github.com/user-attachments/assets/4d5274be-da3e-4bd2-8b3c-c3dbe9c12a1a" alt="로고"/>
+</a>
+
+🔗 <a href="https://bit.ly/next-hr-academy-36th-recruiting">(차BTI) 나의 인재 유형은? - 차세대 HR 아카데미 36기 모집</a>
+
+<br/>
+<hr/>
+
 # 🌟 Mini Project Overview (프로젝트 개요)
 - **프로젝트 이름** : (차BTI) 나의 인재 유형은?
 - **프로젝트 설명** : 차세대 HR 아카데미 36기 모집 시에 인재상 설명 및 차세대 활동 대내외 PR을 위해 제작
@@ -20,11 +29,4 @@
 
 - **결과**
   - 이전 기수 대비 지원자 수 120% 증가에 기여
-  - 긍정적인 후보자 경험 형성에 기여
-
-<br/>
-<br/>
-
-<a display="block" href="https://www.instagram.com/next_hr_academy/" target="_blank">
-  <img src="https://github.com/user-attachments/assets/4d5274be-da3e-4bd2-8b3c-c3dbe9c12a1a" alt="로고"/>
-</a>
+  - 긍정적인 후보자 경험 형성에 기여 (인재상 및 차세대 활동에 대한 이해도 증진)
